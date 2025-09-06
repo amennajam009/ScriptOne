@@ -1,0 +1,68 @@
+<nav class="bg-gray-900 px-4 py-3">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo/Brand -->
+    <div class="flex items-center space-x-2">
+      <div class="w-8 h-8 theme-color transform rotate-45 flex items-center justify-center">
+        <div class="w-4 h-4 bg-gray-900 transform -rotate-45"></div>
+      </div>
+      <span class="text-white text-xl font-semibold">ScriptOne</span>
+    </div>
+
+    <!-- Desktop Navigation Links -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="#" class="text-gray-300 hover:text-white transition-colors">
+        Products
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition-colors">
+        Services
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition-colors">
+        Free Resources
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition-colors">
+        Blog
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition-colors">
+        Sponsor Us
+      </a>
+    </div>
+
+    <!-- Book a Call Button -->
+    <div class="hidden md:block">
+      <button class="theme-color text-gray-900 px-6 py-2 rounded-lg font-medium  transition-colors">
+        Book a Call
+      </button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden text-white" (click)="toggleMenu()">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isMenuOpen" class="md:hidden mt-4 pb-4">
+    <div class="flex flex-col space-y-4">
+      <a href="#" class="text-gray-300 hover:text-white transition-colors">
+        Products
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition-colors">
+        Services
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition-colors">
+        Free Resources
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition-colors">
+        Blog
+      </a>
+      <a href="#" class="text-gray-300 hover:text-white transition-colors">
+        Sponsor Us
+      </a>
+      <button class="bg-cyan-400 text-gray-900 px-6 py-2 rounded-lg font-medium hover:bg-cyan-300 transition-colors w-fit">
+        Book a Call
+      </button>
+    </div>
+  </div>
+</nav>

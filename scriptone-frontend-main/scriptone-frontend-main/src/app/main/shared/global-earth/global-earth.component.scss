@@ -1,0 +1,14 @@
+    :host {
+      display: inline-block;
+      width: 1em;         /* scales with the surrounding text size */
+      height: 1em;
+      line-height: 1em;
+      vertical-align: -0.08em; /* nudge to look like an O */
+    }
+    .globe-o {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 9999px; /* circle */
+    }

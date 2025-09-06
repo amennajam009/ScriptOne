@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// .theme-color{
+//     background-color: #b980e7;
+// }
+.theme-color {
+    // background-color: #b980e7;
+    background-color: rgb(235 99 99 / 75%)
+    // background-color: rgb(252 165 165 / var(--tw-text-opacity, 1))
+}
+
+.theme-color:hover {
+    box-shadow: 0 6px 12px -2px rgba(102, 204, 238, 0.425); /* Light blue bottom shadow */
+}
+
+.text-theme-color{
+    // color: #b980e7;
+    color: rgb(235 99 99 / 75%);
+}

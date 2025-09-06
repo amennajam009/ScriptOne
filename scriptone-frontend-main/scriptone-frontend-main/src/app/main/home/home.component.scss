@@ -1,0 +1,84 @@
+/* === MOVING WHITE GRADIENT BACKGROUND (with optional teal tint) === */
+.hero-anim {
+  position: relative;
+  isolation: isolate;
+}
+
+/* glowing, moving “spotlight” */
+.hero-anim::before {
+  content: "";
+  position: absolute;
+  inset: -25vmax;                   /* overscan so edges never show */
+  z-index: -1;
+  --mx: 25%;                        /* animated x */
+  --my: 30%;                        /* animated y */
+
+  /* white main glow + subtle teal echo */
+  background:
+    radial-gradient(60vmax 45vmax at var(--mx) var(--my),
+      rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 35%, transparent 65%),
+    radial-gradient(70vmax 50vmax at calc(100% - var(--mx)) calc(100% - var(--my)),
+      rgba(53,215,219,0.10) 0%, transparent 60%);
+
+  background-blend-mode: screen;
+  filter: blur(40px) saturate(120%);
+  animation: heroSweep 18s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* faint techy grid like your screenshot (optional) */
+.hero-anim::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#ffffff0d 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff0d 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px;
+  opacity: .35;
+  mix-blend-mode: overlay;
+}
+
+.stat-card {
+  backdrop-filter: blur(10px);
+  background: rgb(31 41 55);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(6, 182, 212, 0.1);
+}
+
+.stat-value {
+  // background: linear-gradient(135deg, #8b44c5, #b176e0);
+  background: linear-gradient(135deg, rgb(235 99 99 / 75%), rgba(235, 126, 126, 0.75));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 640px) {
+  .stat-card {
+    padding: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+  }
+}
+
+/* animate the spotlight path so it’s clearly visible */
+@keyframes heroSweep {
+  0%   { --mx: 18%; --my: 28%; }
+  25%  { --mx: 82%; --my: 24%; }
+  50%  { --mx: 70%; --my: 78%; }
+  75%  { --mx: 22%; --my: 72%; }
+  100% { --mx: 18%; --my: 28%; }
+}
+
+/* respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim::before { animation: none; }
+}
